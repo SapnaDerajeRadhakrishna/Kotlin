@@ -1,0 +1,17 @@
+package org.maxwell.kotlin
+
+import org.maxwell.demo.Greeter
+import java.util.ArrayList
+
+class KotlinGreetingJoiner(val greeter: Greeter) {
+
+    val names = ArrayList<String?>()
+
+    fun addName(name: String?) {
+        names.add(name)
+    }
+
+    fun getJoinedGreeting(): String {
+        return "${greeter.getGreeting()} ${names.filterNotNull().joinToString(separator = " and ")}"
+    }
+}
